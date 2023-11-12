@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import firebase from "firebase/app";
 import "firebase/messaging";
-import { firebaseConfig } from './constants';
+import { firebaseConfig } from "./constants";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
@@ -22,9 +22,10 @@ export const getMessagingToken = async () => {
   if (!messaging) return;
   try {
     currentToken = await messaging.getToken({
-      vapidKey: 'BKBGwZGAD8Q8yL2mIm1NriOEOStQeCFVbS5i0N6nimAXsgJu0K4JP-rtCAGwPv-KJTRuUdli0zXZPi6dP2bthq4',
+      vapidKey:
+        "BI0h8hXxUUYRoko2OTas4a8W58goUxcOdKgqov2PPqpCszvtcYpsfFWqojuMBGO6A-lU7wU8kBpiWapa0N0DYBc",
     });
-    localStorage.setItem('token' , currentToken)
+    localStorage.setItem("token", currentToken);
     return currentToken;
   } catch (error) {
     console.log("An error occurred while retrieving token. ", error);
